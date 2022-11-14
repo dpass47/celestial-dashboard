@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/settings.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="icon" type="image/x-icon" href="img/icon48.png" />
+		<title>Dashboard Settings</title>
+	</head>
+	<body>
+		<div class="settings-container">
+			<h1>Dashboard Settings</h1>
+			<div class="settings-menu">
+				<p class="settings-prompt">Choose to enable or disable:</p>
+				<p>
+					Time
+					<input
+						type="checkbox"
+						name="main-settings"
+						value="time"
+						checked
+						class="time-enable"
+					/>
+				</p>
+				<p>
+					Crypto
+					<input
+						type="checkbox"
+						name="main-settings"
+						checked
+						value="crypto"
+						class="crypto-enable"
+					/><button class="crypto-btn">Crypto Options</button>
+				</p>
+
+				<p>
+					Quote
+					<input
+						type="checkbox"
+						name="main-settings"
+						value="quote"
+						class="quote-enable"
+						checked
+					/>
+				</p>
+				<p>
+					Weather
+					<input
+						type="checkbox"
+						value="weather"
+						name="main-settings"
+						class="weather-enable"
+						checked
+					/><button>Weather Options</button>
+				</p>
+
+				<div class="weather-settings">
+					<p>Location <input type="text" /></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="crypto-settings">
+			<a class="return-btn"><</a>
+			<h1>Crypto Settings</h1>
+			<p class="settings-prompt-crypto">Choose to enable or disable:</p>
+
+			<p>
+				Bitcoin
+				<input
+					type="checkbox"
+					class="bitcoin-enable"
+					name="crypto-checkbox"
+					value="Bitcoin"
+					checked
+				/>
+			</p>
+			<p>
+				Ethereum
+				<input
+					type="checkbox"
+					class="ethereum-enable"
+					name="crypto-checkbox"
+					value="Ethereum"
+					checked
+				/>
+			</p>
+			<p>
+				Dogecoin
+				<input
+					type="checkbox"
+					class="dogecoin-enable"
+					name="crypto-checkbox"
+					value="Dogecoin"
+					checked
+				/>
+			</p>
+		</div>
+
+		<script src="js/settings.js"></script>
+	</body>
+</html>
