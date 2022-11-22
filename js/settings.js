@@ -5,6 +5,11 @@ let cryptoEnable = document.querySelector('.crypto-enable');
 let timeEnable = document.querySelector('.time-enable');
 let weatherEnable = document.querySelector('.weather-enable');
 let quoteEnable = document.querySelector('.quote-enable');
+let bitcoinEnable = document.querySelector('.bitcoin-enable')
+let ethereumEnable = document.querySelector('.ethereum-enable')
+let dogecoinEnable = document.querySelector('.dogecoin-enable')
+let enabledSettings = [];
+let cryptoOptions = [];
 
 document.querySelector('.return-btn').addEventListener('click', () => {
 	settingsContainer.style.display = 'block';
@@ -14,13 +19,29 @@ document.querySelector('.return-btn').addEventListener('click', () => {
 cryptoBtn.addEventListener('click', () => {
 	settingsContainer.style.display = 'none';
 	cryptoSettings.style.display = 'block';
+	if (localStorage.getItem('cryptoSettings')) {
+		cryptoOptions = JSON.parse(localStorage.getItem('cryptoSettings'))
+		cryptoOptions.includes('Bitcoin') ? '' : (bitcoinEnable.checked = false);
+		cryptoOptions.includes('Ethereum') ? '' : (ethereumEnable.checked = false);
+		cryptoOptions.includes('Dogecoin') ? '' : (dogecoinEnable.checked = false);
+	} else if (localStorage.getItem('cryptoSettings') === null ){
+			cryptoOptions = ['Bitcoin']
+			cryptoOptions.includes('Bitcoin') ? '' : (ethereumEnable.checked = false) (dogecoinEnable.checked = false)
+			localStorage.setItem('cryptoSettings', JSON.stringify(cryptoOptions))
+		}	
 });
+
+cryptoEnable.addEventListener('click', () => {
+	if (localStorage.getItem('cryptoSettings')) {
+
+	} else {
+		localStorage.setItem('cryptoSettings', JSON.stringify('Bitcoin'))
+	}
+})
 
 var checkboxes = document.querySelectorAll(
 	'input[type=checkbox][name=main-settings]'
 );
-
-let enabledSettings = [];
 
 if (localStorage.getItem('enabledSettings')) {
 	enabledSettings = JSON.parse(localStorage.getItem('enabledSettings'));
@@ -28,10 +49,26 @@ if (localStorage.getItem('enabledSettings')) {
 	enabledSettings.includes('crypto') ? '' : (cryptoEnable.checked = false);
 	enabledSettings.includes('weather') ? '' : (weatherEnable.checked = false);
 	enabledSettings.includes('quote') ? '' : (quoteEnable.checked = false);
-	console.log(enabledSettings);
 } else {
-	enabledSettings = ['time, crypto, quote, weather'];
+	enabledSettings = ['time, quote, weather'];
+	enabledSettings.includes('crypto') ? '' : (cryptoEnable.checked = false)
+	localStorage.setItem('enabledSettings', JSON.stringify(enabledSettings))
 }
+
+
+if (localStorage.getItem('cryptoSettings')) {
+		cryptoOptions = JSON.parse(localStorage.getItem('cryptoSettings'))
+		cryptoOptions.includes('Bitcoin') ? '' : (bitcoinEnable.checked = false);
+		cryptoOptions.includes('Ethereum') ? '' : (ethereumEnable.checked = false);
+		cryptoOptions.includes('Dogecoin') ? '' : (dogecoinEnable.checked = false);
+	} else if (localStorage.getItem('cryptoSettings') === null ){
+			cryptoOptions = ['Bitcoin']
+			cryptoOptions.includes('Bitcoin') ? '' : (ethereumEnable.checked = false) (dogecoinEnable.checked = false)
+			localStorage.setItem('cryptoSettings', JSON.stringify(cryptoOptions))
+		}
+
+
+
 
 checkboxes.forEach(function (checkbox) {
 	checkbox.addEventListener('change', function () {
@@ -45,7 +82,7 @@ checkboxes.forEach(function (checkbox) {
 	});
 });
 
-let cryptoOptions = [];
+
 
 var cryptoCheckboxes = document.querySelectorAll(
 	'input[type=checkbox][name=crypto-checkbox]'

@@ -8,12 +8,6 @@ if (localStorage.getItem('enabledSettings')) {
 	userSettings = ['time', 'weather', 'quote'];
 }
 
-if (localStorage.getItem('cryptoSettings')) {
-	cryptoSettings = JSON.parse(localStorage.getItem('cryptoSettings'));
-} else {
-	cryptoSettings = [];
-}
-
 if (userSettings.includes('time')) {
 	document.body.addEventListener('load', getCurrentTime());
 
@@ -27,6 +21,12 @@ if (userSettings.includes('time')) {
 		);
 	}
 	setInterval(getCurrentTime, 1000);
+}
+
+if (localStorage.getItem('cryptoSettings')) {
+	cryptoSettings = JSON.parse(localStorage.getItem('cryptoSettings'));
+} else {
+	cryptoSettings = [];
 }
 
 fetch(
