@@ -1,6 +1,11 @@
 const authorText = document.querySelector('.author-text');
 let userSettings = [];
 let cryptoSettings = [];
+let userCity;
+
+if (localStorage.getItem('userCity')) {
+	userCity = localStorage.getItem('userCity');
+}
 
 if (localStorage.getItem('enabledSettings')) {
 	userSettings = JSON.parse(localStorage.getItem('enabledSettings'));
@@ -88,11 +93,33 @@ if (userSettings.includes('crypto')) {
 }
 
 if (userSettings.includes('weather')) {
-	navigator.geolocation.getCurrentPosition((position) => {
+	if (JSON.parse(localStorage.getItem('locationEnabled'))) {
+		navigator.geolocation.getCurrentPosition((position) => {
+			fetch(
+				`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${[
+					position.coords.latitude,
+				]}&lon=${position.coords.longitude}&units=imperial`
+			)
+				.then((res) => {
+					if (!res.ok) {
+						throw Error('Weather data not available');
+					}
+					return res.json();
+				})
+				.then((data) => {
+					document.querySelector(
+						'.weather'
+					).innerHTML = `<img src=http://openweathermap.org/img/wn/${
+						data.weather[0].icon
+					}@2x.png>
+										<p class="weather-temp">${Math.round(data.main.temp)}°F</p>
+										<p class="weather-city">${data.name}</p>`;
+				})
+				.catch((err) => console.error(err));
+		});
+	} else {
 		fetch(
-			`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${[
-				position.coords.latitude,
-			]}&lon=${position.coords.longitude}&units=imperial`
+			`https://apis.scrimba.com/openweathermap/data/2.5/weather?q=${userCity}&units=imperial`
 		)
 			.then((res) => {
 				if (!res.ok) {
@@ -110,7 +137,7 @@ if (userSettings.includes('weather')) {
 										<p class="weather-city">${data.name}</p>`;
 			})
 			.catch((err) => console.error(err));
-	});
+	}
 }
 
 if (userSettings.includes('quote')) {

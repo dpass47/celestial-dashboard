@@ -54,12 +54,34 @@
 						name="main-settings"
 						class="weather-enable"
 						checked
-					/><button>Weather Options</button>
+					/><button class="weather-btn">Weather Options</button>
 				</p>
+			</div>
+		</div>
 
-				<div class="weather-settings">
-					<p>Location <input type="text" /></p>
-				</div>
+		<div class="weather-settings">
+			<a class="return-btn"><</a>
+			<h1>Weather Settings</h1>
+			<p class="settings-prompt-weather">Choose to enable or disable:</p>
+			<p>
+				Use Location Services?
+				<input
+					type="checkbox"
+					name="user-location"
+					class="user-location-enable"
+					value="location"
+				/>
+			</p>
+			<div class="user-location-settings">
+				<p>
+					City:
+					<input
+						type="text"
+						name="user-location-text"
+						class="user-location-text"
+					/>
+				</p>
+				<button class="save-weather-btn">Save</button>
 			</div>
 		</div>
 

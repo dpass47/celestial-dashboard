@@ -8,7 +8,8 @@
 }
 
 .settings-container,
-.crypto-settings {
+.crypto-settings,
+.weather-settings {
 	text-align: center;
 	max-width: 550px;
 	margin: 0 auto;
