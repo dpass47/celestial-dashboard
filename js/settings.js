@@ -17,7 +17,7 @@ const saveWeatherBtn = document.querySelector('.save-weather-btn');
 let enabledSettings = [];
 let cryptoOptions = [];
 
-if (localStorage.getItem('locationEnabled')) {
+if (localStorage.getItem('locationEnabled') = true) {
 	userLocationEnable.checked = true;
 	userLocationSettings.style.display = 'none';
 }
