@@ -117,7 +117,7 @@ if (userSettings.includes('weather')) {
 				})
 				.catch((err) => console.error(err));
 		});
-	} else {
+	} else if (localStorage.getItem('userCity')) {
 		fetch(
 			`https://apis.scrimba.com/openweathermap/data/2.5/weather?q=${userCity}&units=imperial`
 		)
