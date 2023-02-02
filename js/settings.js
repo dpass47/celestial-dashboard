@@ -28,8 +28,6 @@ if (JSON.parse(localStorage.getItem('locationEnabled'))) {
 	userLocationSettings.style.display = 'block';
 }
 
-console.log(document.querySelectorAll('.return-btn'));
-
 for (let i = 0; i < returnBtn.length; i++) {
 	returnBtn[i].addEventListener('click', () => {
 		settingsContainer.style.display = 'block';
@@ -37,12 +35,6 @@ for (let i = 0; i < returnBtn.length; i++) {
 		weatherSettings.style.display = 'none';
 	});
 }
-
-// document.querySelector('.return-btn').addEventListener('click', () => {
-// 	settingsContainer.style.display = 'block';
-// 	cryptoSettings.style.display = 'none';
-// 	weatherSettings.style.display = 'none';
-// });
 
 weatherBtn.addEventListener('click', () => {
 	settingsContainer.style.display = 'none';
