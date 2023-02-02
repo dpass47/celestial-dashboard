@@ -161,13 +161,13 @@ function cryptoCard(data) {
 	<img src="${data.image.small}">
 		                <p><b>${data.localization.en}</b></p>
 		                <p><strong>Now</strong>🎯: $${data.market_data.current_price.usd.toFixed(
-											3
+											2
 										)}</p>
 		                <p><strong>24H</strong>👆: $${data.market_data.high_24h.usd.toFixed(
-											3
+											2
 										)}</p>
 		                <p><strong>24H</strong>👇: $${data.market_data.low_24h.usd.toFixed(
-											3
+											2
 										)}</p>
 										</div>`;
 }
