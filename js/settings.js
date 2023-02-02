@@ -14,6 +14,7 @@ const userLocationText = document.querySelector('.user-location-text');
 const userLocationSettings = document.querySelector('.user-location-settings');
 const userLocationEnable = document.querySelector('.user-location-enable');
 const saveWeatherBtn = document.querySelector('.save-weather-btn');
+const returnBtn = document.querySelectorAll('.return-btn');
 let enabledSettings = [];
 let cryptoOptions = [];
 
@@ -27,11 +28,21 @@ if (JSON.parse(localStorage.getItem('locationEnabled'))) {
 	userLocationSettings.style.display = 'block';
 }
 
-document.querySelector('.return-btn').addEventListener('click', () => {
-	settingsContainer.style.display = 'block';
-	cryptoSettings.style.display = 'none';
-	weatherSettings.style.display = 'none';
-});
+console.log(document.querySelectorAll('.return-btn'));
+
+for (let i = 0; i < returnBtn.length; i++) {
+	returnBtn[i].addEventListener('click', () => {
+		settingsContainer.style.display = 'block';
+		cryptoSettings.style.display = 'none';
+		weatherSettings.style.display = 'none';
+	});
+}
+
+// document.querySelector('.return-btn').addEventListener('click', () => {
+// 	settingsContainer.style.display = 'block';
+// 	cryptoSettings.style.display = 'none';
+// 	weatherSettings.style.display = 'none';
+// });
 
 weatherBtn.addEventListener('click', () => {
 	settingsContainer.style.display = 'none';
