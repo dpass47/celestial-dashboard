@@ -115,7 +115,7 @@ if (userSettings.includes('weather')) {
 										<p class="weather-temp">${Math.round(data.main.temp)}°F</p>
 										<p class="weather-city">${data.name}</p>`;
 				})
-				.catch((err) => console.error(err));
+				.catch((err) => console.log(err));
 		});
 	} else if (localStorage.getItem('userCity')) {
 		fetch(
@@ -136,7 +136,7 @@ if (userSettings.includes('weather')) {
 										<p class="weather-temp">${Math.round(data.main.temp)}°F</p>
 										<p class="weather-city">${data.name}</p>`;
 			})
-			.catch((err) => console.error(err));
+			.catch((err) => console.log(err));
 	}
 }
 

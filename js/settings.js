@@ -18,8 +18,6 @@ const returnBtn = document.querySelectorAll('.return-btn');
 let enabledSettings = [];
 let cryptoOptions = [];
 
-console.log(localStorage.getItem('locationEnabled'));
-
 if (JSON.parse(localStorage.getItem('locationEnabled'))) {
 	userLocationEnable.checked = true;
 	userLocationSettings.style.display = 'none';
