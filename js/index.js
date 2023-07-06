@@ -141,7 +141,7 @@ if (userSettings.includes('weather')) {
 }
 
 if (userSettings.includes('quote')) {
-	fetch('https://api.goprogram.ai/inspiration')
+	fetch('https://type.fit/api/quotes')
 		.then((res) => {
 			if (!res.ok) {
 				throw Error("Can't get quote");
@@ -149,9 +149,11 @@ if (userSettings.includes('quote')) {
 			return res.json();
 		})
 		.then((data) => {
+			console.log(data);
+			randomNum = Math.floor(Math.random() * 1000);
 			document.querySelector(
 				'.quote'
-			).innerHTML = `"${data.quote}" - <b>${data.author}</b>`;
+			).innerHTML = `"${data[randomNum].text}" - <b>${data[randomNum].author}</b>`;
 		});
 }
 
@@ -161,13 +163,13 @@ function cryptoCard(data) {
 	<img src="${data.image.small}">
 		                <p><b>${data.localization.en}</b></p>
 		                <p><strong>Now</strong>🎯: $${data.market_data.current_price.usd.toFixed(
-											2
-										)}</p>
+							2
+						)}</p>
 		                <p><strong>24H</strong>👆: $${data.market_data.high_24h.usd.toFixed(
-											2
-										)}</p>
+							2
+						)}</p>
 		                <p><strong>24H</strong>👇: $${data.market_data.low_24h.usd.toFixed(
-											2
-										)}</p>
+							2
+						)}</p>
 										</div>`;
 }
