@@ -96,7 +96,7 @@ if (userSettings.includes('weather')) {
 	if (JSON.parse(localStorage.getItem('locationEnabled'))) {
 		navigator.geolocation.getCurrentPosition((position) => {
 			fetch(
-				`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`
+				`https://api.open-meteo.com/v1/forecast?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&current_weather=true&temperature_unit=fahrenheit`
 			)
 				.then((res) => {
 					if (!res.ok) {
@@ -105,19 +105,14 @@ if (userSettings.includes('weather')) {
 					return res.json();
 				})
 				.then((data) => {
-					document.querySelector(
-						'.weather'
-					).innerHTML = `<img src=http://openweathermap.org/img/wn/${
-						data.weather[0].icon
-					}@2x.png>
-										<p class="weather-temp">${Math.round(data.main.temp)}°F</p>
-										<p class="weather-city">${data.name}</p>`;
+					document.querySelector('.weather').innerHTML = `
+										<p class="weather-temp">${Math.round(data.current_weather.temperature)}°F</p>`;
 				})
 				.catch((err) => console.log(err));
 		});
 	} else if (localStorage.getItem('userCity')) {
 		fetch(
-			`https://api.openweathermap.org/data/2.5/weather?q=${userCity}&units=imperial`
+			`https://geocoding-api.open-meteo.com/v1/search?name=${userCity}&count=1&language=en&format=json`
 		)
 			.then((res) => {
 				if (!res.ok) {
@@ -126,13 +121,21 @@ if (userSettings.includes('weather')) {
 				return res.json();
 			})
 			.then((data) => {
-				document.querySelector(
-					'.weather'
-				).innerHTML = `<img src=http://openweathermap.org/img/wn/${
-					data.weather[0].icon
-				}@2x.png>
-										<p class="weather-temp">${Math.round(data.main.temp)}°F</p>
-										<p class="weather-city">${data.name}</p>`;
+				fetch(
+					`https://api.open-meteo.com/v1/forecast?latitude=${data.results[0].latitude}&longitude=${data.results[0].longitude}&current_weather=true&temperature_unit=fahrenheit`
+				)
+					.then((res) => {
+						if (!res.ok) {
+							throw Error('Weather data not available');
+						}
+						return res.json();
+					})
+					.then((data) => {
+						document.querySelector('.weather').innerHTML = `
+										<p class="weather-temp">${Math.round(data.current_weather.temperature)}°F</p>
+										<p class="weather-city">${userCity}</p>`;
+					})
+					.catch((err) => console.log(err));
 			})
 			.catch((err) => console.log(err));
 	}
