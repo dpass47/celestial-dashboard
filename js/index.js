@@ -96,7 +96,7 @@ if (userSettings.includes('weather')) {
 	if (JSON.parse(localStorage.getItem('locationEnabled'))) {
 		navigator.geolocation.getCurrentPosition((position) => {
 			fetch(
-				`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=e092c4ffcdbbfb71b467dc5c8ea18758`
+				`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=x`
 			)
 				.then((res) => {
 					if (!res.ok) {
@@ -117,7 +117,7 @@ if (userSettings.includes('weather')) {
 		});
 	} else if (localStorage.getItem('userCity')) {
 		fetch(
-			`https://api.openweathermap.org/data/2.5/weather?q=${userCity}&units=imperial&appid=e092c4ffcdbbfb71b467dc5c8ea18758`
+			`https://api.openweathermap.org/data/2.5/weather?q=${userCity}&units=imperial&appid=x`
 		)
 			.then((res) => {
 				if (!res.ok) {
