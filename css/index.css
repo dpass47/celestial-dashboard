@@ -23,6 +23,8 @@ body {
 
 .author-text {
 	opacity: 0.8;
+	display: flex;
+	align-items: end;
 }
 
 .container {
@@ -114,4 +116,5 @@ body {
 
 .quote {
 	font-size: 1rem;
+	max-width: 30rem;
 }
