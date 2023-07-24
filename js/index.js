@@ -96,9 +96,7 @@ if (userSettings.includes('weather')) {
 	if (JSON.parse(localStorage.getItem('locationEnabled'))) {
 		navigator.geolocation.getCurrentPosition((position) => {
 			fetch(
-				`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${[
-					position.coords.latitude,
-				]}&lon=${position.coords.longitude}&units=imperial`
+				`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=e092c4ffcdbbfb71b467dc5c8ea18758`
 			)
 				.then((res) => {
 					if (!res.ok) {
@@ -119,7 +117,7 @@ if (userSettings.includes('weather')) {
 		});
 	} else if (localStorage.getItem('userCity')) {
 		fetch(
-			`https://apis.scrimba.com/openweathermap/data/2.5/weather?q=${userCity}&units=imperial`
+			`https://api.openweathermap.org/data/2.5/weather?q=${userCity}&units=imperial&appid=e092c4ffcdbbfb71b467dc5c8ea18758`
 		)
 			.then((res) => {
 				if (!res.ok) {
@@ -141,7 +139,7 @@ if (userSettings.includes('weather')) {
 }
 
 if (userSettings.includes('quote')) {
-	fetch('https://type.fit/api/quotes')
+	fetch('https://api.quotable.io/random')
 		.then((res) => {
 			if (!res.ok) {
 				throw Error("Can't get quote");
@@ -149,11 +147,9 @@ if (userSettings.includes('quote')) {
 			return res.json();
 		})
 		.then((data) => {
-			console.log(data);
-			randomNum = Math.floor(Math.random() * 1000);
 			document.querySelector(
 				'.quote'
-			).innerHTML = `"${data[randomNum].text}" - <b>${data[randomNum].author}</b>`;
+			).innerHTML = `"${data.content}" - <b>${data.author}</b>`;
 		});
 }
 
