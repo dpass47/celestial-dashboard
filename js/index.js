@@ -1,3 +1,5 @@
+/* Copyright (c) 2024 Dante Passalacqua */
+
 const authorText = document.querySelector('.author-text');
 let userSettings = [];
 let cryptoSettings = [];

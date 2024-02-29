@@ -1,3 +1,5 @@
+/* Copyright (c) 2024 Dante Passalacqua */
+
 const cryptoBtn = document.querySelector('.crypto-btn');
 const settingsContainer = document.querySelector('.settings-container');
 const cryptoSettings = document.querySelector('.crypto-settings');
@@ -64,14 +66,22 @@ cryptoBtn.addEventListener('click', () => {
 	cryptoSettings.style.display = 'block';
 	if (localStorage.getItem('cryptoSettings')) {
 		cryptoOptions = JSON.parse(localStorage.getItem('cryptoSettings'));
-		cryptoOptions.includes('Bitcoin') ? '' : (bitcoinEnable.checked = false);
-		cryptoOptions.includes('Ethereum') ? '' : (ethereumEnable.checked = false);
-		cryptoOptions.includes('Dogecoin') ? '' : (dogecoinEnable.checked = false);
+		cryptoOptions.includes('Bitcoin')
+			? ''
+			: (bitcoinEnable.checked = false);
+		cryptoOptions.includes('Ethereum')
+			? ''
+			: (ethereumEnable.checked = false);
+		cryptoOptions.includes('Dogecoin')
+			? ''
+			: (dogecoinEnable.checked = false);
 	} else if (localStorage.getItem('cryptoSettings') === null) {
 		cryptoOptions = ['Bitcoin'];
 		cryptoOptions.includes('Bitcoin')
 			? ''
-			: (ethereumEnable.checked = false)((dogecoinEnable.checked = false));
+			: (ethereumEnable.checked = false)(
+					(dogecoinEnable.checked = false)
+			  );
 		localStorage.setItem('cryptoSettings', JSON.stringify(cryptoOptions));
 	}
 });
@@ -120,7 +130,10 @@ checkboxes.forEach(function (checkbox) {
 			.filter((i) => i.checked)
 			.map((i) => i.value);
 
-		localStorage.setItem('enabledSettings', JSON.stringify(enabledSettings));
+		localStorage.setItem(
+			'enabledSettings',
+			JSON.stringify(enabledSettings)
+		);
 	});
 });
 
