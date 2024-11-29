@@ -3,12 +3,26 @@
 	<head>
 		<!-- Copyright (c) 2024 Dante Passalacqua -->
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="css/settings.css" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link rel="icon" type="image/x-icon" href="img/icon48.png" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="css/settings.css" />
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="img/icon48.png" />
 		<title>Celestial Dashboard Settings</title>
 	</head>
 	<body>
@@ -23,18 +37,7 @@
 						name="main-settings"
 						value="time"
 						checked
-						class="time-enable"
-					/>
-				</p>
-				<p>
-					Crypto
-					<input
-						type="checkbox"
-						name="main-settings"
-						checked
-						value="crypto"
-						class="crypto-enable"
-					/><button class="crypto-btn">Crypto Options</button>
+						class="time-enable" />
 				</p>
 
 				<p>
@@ -44,8 +47,7 @@
 						name="main-settings"
 						value="quote"
 						class="quote-enable"
-						checked
-					/>
+						checked />
 				</p>
 				<p>
 					Weather
@@ -54,8 +56,9 @@
 						value="weather"
 						name="main-settings"
 						class="weather-enable"
-						checked
-					/><button class="weather-btn">Weather Options</button>
+						checked /><button class="weather-btn">
+						Weather Options
+					</button>
 				</p>
 			</div>
 		</div>
@@ -70,8 +73,7 @@
 					type="checkbox"
 					name="user-location"
 					class="user-location-enable"
-					value="location"
-				/>
+					value="location" />
 			</p>
 			<div class="user-location-settings">
 				<p>
@@ -79,48 +81,10 @@
 					<input
 						type="text"
 						name="user-location-text"
-						class="user-location-text"
-					/>
+						class="user-location-text" />
 				</p>
 				<button class="save-weather-btn">Save</button>
 			</div>
-		</div>
-
-		<div class="crypto-settings">
-			<a class="return-btn">Back</a>
-			<h1>Crypto Settings</h1>
-			<p class="settings-prompt-crypto">Choose to enable or disable:</p>
-
-			<p>
-				Bitcoin
-				<input
-					type="checkbox"
-					class="bitcoin-enable"
-					name="crypto-checkbox"
-					value="Bitcoin"
-					checked
-				/>
-			</p>
-			<p>
-				Ethereum
-				<input
-					type="checkbox"
-					class="ethereum-enable"
-					name="crypto-checkbox"
-					value="Ethereum"
-					checked
-				/>
-			</p>
-			<p>
-				Dogecoin
-				<input
-					type="checkbox"
-					class="dogecoin-enable"
-					name="crypto-checkbox"
-					value="Dogecoin"
-					checked
-				/>
-			</p>
 		</div>
 
 		<script src="js/settings.js"></script>
