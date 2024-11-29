@@ -44,7 +44,7 @@ body {
 
 .top-section {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 }
 
 .bottom-section {
@@ -60,31 +60,6 @@ body {
 	margin: 0 auto;
 	text-align: center;
 	font-size: 6rem;
-	background: #292c358d;
-	border-radius: 1em;
-	width: 500px;
-}
-
-.crypto {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	max-width: 750px;
-	font-size: 1.1rem;
-	text-align: center;
-}
-
-.crypto p {
-	margin: 0.4em;
-}
-
-.crypto-card {
-	background: #292c358d;
-	border-radius: 1em;
-	padding: 1em;
-}
-
-.crypto-card {
-	margin-right: 1em;
 }
 
 .weather {
@@ -95,13 +70,27 @@ body {
 	align-self: flex-start;
 }
 
+.weather-placeholder {
+	max-width: 200px;
+}
+
+.weather-placeholder a,
+.weather-placeholder a:visited {
+	color: rgb(0, 217, 255);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.weather-placeholder a:hover {
+	color: rgb(0, 172, 202);
+	transition: all 300ms;
+}
+
 .weather-temp {
 	margin: 0;
 	font-size: 2.25rem;
 	margin-left: -10px;
-	background: #292c358d;
-	border-radius: 5px;
-	padding: 2px 5px;
+	margin-bottom: -10px;
 }
 
 .weather img {
