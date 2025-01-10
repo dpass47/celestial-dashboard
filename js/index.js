@@ -36,7 +36,7 @@ fetch()
 	.catch((err) => {
 		console.log(err);
 		document.body.style.backgroundImage = `url(https://images.unsplash.com/photo-1446034295857-c39f8844fad4?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwxNDI0NzB8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTUxODQxNDE&ixlib=rb-1.2.1&q=80)`;
-		authorText.textContent = `By: Vadim Sherbakov`;
+		authorText.textContent = `Photo by: Vadim Sherbakov`;
 	});
 
 if (userSettings.includes('weather')) {
